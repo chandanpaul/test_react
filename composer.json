@@ -1,28 +1,51 @@
 {
-    "name": "sebastian/money",
-    "description": "Value Object that represents a monetary value (using a currency's smallest unit)",
-    "keywords": ["money"],
-    "homepage": "http://www.github.com/sebastianbergmann/money",
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Sebastian Bergmann",
-            "email": "sebastian@phpunit.de"
-        }
-    ],
-    "require": {
-        "php": "^5.4|^7.0",
-        "ext-intl": "*"
-    },
-    "autoload": {
-        "classmap": [
-            "src/"
-        ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.6.x-dev"
-        }
-    }
+	"name": "laravel/laravel",
+	"description": "The Laravel Framework.",
+	"keywords": ["framework", "laravel"],
+	"license": "MIT",
+	"require": {
+		"laravel/framework": "4.0.*",
+		"phpunit/phpunit": "3.7.*",
+        "theseer/fxsl": "1.0.*@dev",
+        "theseer/phpdox": "0.5.*@dev",
+        "squizlabs/php_codesniffer": "1.4.6",
+        "phpmd/phpmd": "1.5.0",
+        "h4cc/phpqatools": "1.1.0",
+        "phploc/phploc": "2.0.2",
+        "sebastian/phpcpd": "1.4.3",
+        "phpdocumentor/phpdocumentor": "v2.0.1",
+        "mayflower/php-codebrowser": "1.0.*@dev",
+        "pear/console_commandline": "dev-trunk",
+        "pear/log": "dev-master",
+        "pear/pear_exception": "dev-master",
+        "phing/phing": "2.6.1"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan optimize"
+		],
+		"pre-update-cmd": [
+			"php artisan clear-compiled"
+		],
+		"post-update-cmd": [
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
 }
-
